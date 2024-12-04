@@ -1,0 +1,44 @@
+// P6: Multithreading 
+
+
+
+import java.util.Scanner;
+
+interface Shape {
+    double calculateArea();
+}
+
+class Circle implements Shape {
+    private double radius;
+    public Circle(double radius) { this.radius = radius; }
+    public double calculateArea() { return Math.PI * radius * radius; }
+}
+
+class Rectangle implements Shape {
+    private double length, breadth;
+    public Rectangle(double length, double breadth) { this.length = length; this.breadth = breadth; }
+    public double calculateArea() { return length * breadth; }
+}
+
+class Triangle implements Shape {
+    private double base, height;
+    public Triangle(double base, double height) { this.base = base; this.height = height; }
+    public double calculateArea() { return 0.5 * base * height; }
+}
+
+public class ShapeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Shape circle = new Circle(sc.nextDouble());
+        System.out.println(circle.calculateArea());
+
+        Shape rectangle = new Rectangle(sc.nextDouble(), sc.nextDouble());
+        System.out.println(rectangle.calculateArea());
+
+        Shape triangle = new Triangle(sc.nextDouble(), sc.nextDouble());
+        System.out.println(triangle.calculateArea());
+
+        sc.close();
+    }
+}
