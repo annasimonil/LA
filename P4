@@ -1,0 +1,40 @@
+# P4: Frequency Table
+
+from collections import Counter 
+
+entries = [] 
+print("Enter values (type 'done' when finished): ")
+while True: 
+    entry = input("Enter an item :  ") 
+    if entry.lower() == 'done':  
+        break
+    entries.append(entry)
+
+frequency_table = Counter(entries)
+print("\nFrequency Table:  ")
+for item, frequency in frequency_table.items():  
+    print(f"{item}: {frequency}")
+
+
+
+
+
+
+# P4: Kurtosis
+import numpy as np
+from scipy.stats import kurtosis
+
+def calculate_kurtosis(data):
+    if len(data) < 2:
+        raise ValueError("Kurtosis requires at least two data points.")
+    return kurtosis(data)
+
+try:
+    user_input = input("Enter numbers separated by spaces: ").strip()
+    if not user_input:
+        raise ValueError("Input cannot be empty.")
+    data = list(map(float, user_input.split()))
+    kurtosis_value = calculate_kurtosis(data)
+    print(f"The kurtosis of the given data is: {kurtosis_value}")
+except ValueError as e:
+    print(f"Error: {e}")
